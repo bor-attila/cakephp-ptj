@@ -63,10 +63,11 @@ class PhpToJavascriptHelper extends \Cake\View\Helper
         $type = gettype($value);
         switch ($type) {
             case 'double':
-            case 'boolean':
             case 'integer':
             case 'NULL':
                 return $value;
+            case 'boolean':
+                return $value ? 'true' : 'false';
             case 'string':
             case 'object':
             case 'array':
