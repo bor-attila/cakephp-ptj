@@ -1,0 +1,42 @@
+{
+    "name": "bor-attila/cakephp-ptj",
+    "description": "Plugin for CakePHP which helps to pass PHP variables to Javascript",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "javascript", "php", "variable", "share", "pass"],
+    "homepage": "https://github.com/bor-attila/cakephp-ptj/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Attila Bőr",
+            "homepage": "http://www.smartwebservices.eu",
+            "role": "Original author"
+        },
+        {
+            "name": "Other contributors",
+            "homepage": "https://github.com/bor-attila/cakephp-ptj/graphs/contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/bor-attila/cakephp-ptj/issues",
+        "source": "https://github.com/bor-attila/cakephp-ptj/"
+    },
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "cakephp/cakephp": "~4.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpToJavascript\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpToJavascript\\Test\\": "tests/",
+            "Cake\\Test\\": "vendor/cakephp/cakephp/tests/"
+        }
+    }
+}

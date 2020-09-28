@@ -1,0 +1,13 @@
+window.:storage = {};
+window.:function = function(__key, __mutator, __default) {
+    var value = __default;
+
+    if (window.:storage.hasOwnProperty(__key)) {
+        value = window.:storage[__key];
+        if (__mutator && typeof __mutator === 'function') {
+            return __mutator(value);
+        }
+    }
+
+    return value;
+};
