@@ -64,8 +64,9 @@ class PhpToJavascriptHelper extends \Cake\View\Helper
         switch ($type) {
             case 'double':
             case 'integer':
-            case 'NULL':
                 return $value;
+            case 'NULL':
+                return 'null';
             case 'boolean':
                 return $value ? 'true' : 'false';
             case 'string':
@@ -208,7 +209,7 @@ class PhpToJavascriptHelper extends \Cake\View\Helper
         $result = Text::insert('window.:storage.:key = :value;', [
             'storage' => $storage,
             'key' => $key,
-            'value' => $value ?? 'null',
+            'value' => $value,
         ]);
 
         return $with_tags ? $this->Html->scriptBlock($result) : $result;
