@@ -1,6 +1,6 @@
 # CakePHP - Php to Javascript
 
-Pass PHP variables to Javascript without writing API
+Easily pass PHP variables to Javascript 
 
 This Plugin requires: __CakePHP 4.1.x+__
 
@@ -34,19 +34,28 @@ Instead of
 echo $this->Html->scriptBlock('var user = ' . json_encode(['firtname' => 'John', 'lastname' => 'Connor', 'age' => 15]));
 ```
 
-just use
+just use (in layout)
 
 ```
-$this->PhpToJavascript->add('user', ['firtname' => 'John', 'lastname' => 'Connor', 'age' => 15]);
+<html>
+    <head>
+        <?= $this->PhpToJavascript->add([
+            'user' => ['firtname' => 'John', 'lastname' => 'Connor', 'age' => 15],
+            'language' => 'hu_HU'
+        ]); ?>
+        <?= $this->PhpToJavascript->add('key', 'value'); ?>
+    </head>
+    <body>
+        ...
+
+        <?= $this->PhpToJavascript->get(); ?> <!-- Place before all of your script tags -->
+        <?= $this->Html->script(['libraries.min', '....']); ?>
+        <?= $this->fetch('script') ?>
+    </body>
+</html>
 ```
 
-and put
-
-```
-<?= $this->PhpToJavascript->get(); ?>
-```
-
-before all of your script tags. In the client side you can use:
+In the client side you can use:
 
 ```
 p('user'); // Object { firtname: "John", lastname: "Connor", age: 15 }
