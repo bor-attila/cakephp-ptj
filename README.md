@@ -39,11 +39,14 @@ just use (in layout)
 ```
 <html>
     <head>
-        <?= $this->PhpToJavascript->add([
-            'user' => ['firtname' => 'John', 'lastname' => 'Connor', 'age' => 15],
-            'language' => 'hu_HU'
-        ]); ?>
-        <?= $this->PhpToJavascript->add('key', 'value'); ?>
+        <?php 
+            $this->PhpToJavascript->add([
+                'user' => ['firtname' => 'John', 'lastname' => 'Connor', 'age' => 15],
+                'language' => 'hu_HU'
+            ]);
+            // or ..
+            $this->PhpToJavascript->add('key', 'value'); 
+        ?>
     </head>
     <body>
         ...
@@ -98,6 +101,12 @@ You can use this parameter to store it.
 ## Usage (PHP)
 
 ```
+//add multiple variable at once
+$this->PhpToJavascript->add([
+    'user' => $user,
+    'language' => $lang
+]);
+
 //adding simple number if does not exists `var1`
 $this->PhpToJavascript->add('var1', 1);
 
