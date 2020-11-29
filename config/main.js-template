@@ -1,6 +1,9 @@
 window.:storage = {};
 window.:function = function(__key, __mutator, __default) {
     var value = __default;
+    if (arguments.length === 2) {
+        value = __mutator;
+    }
 
     if (window.:storage.hasOwnProperty(__key)) {
         value = window.:storage[__key];

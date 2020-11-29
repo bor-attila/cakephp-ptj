@@ -36,7 +36,7 @@ class PhpToJavascriptHelper extends \Cake\View\Helper
             'depth' => 512,
         ],
         'cache' => [
-            'enabled' => false,
+            'enabled' => true,
             'key' => '__phptojavascript',
             'config' => 'default',
         ],
