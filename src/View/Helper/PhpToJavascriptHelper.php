@@ -230,10 +230,6 @@ class PhpToJavascriptHelper extends \Cake\View\Helper
             $result = $this->getJsFileContent();
         }
 
-        if (empty($this->storage)) {
-            return $with_tags ? $this->Html->scriptBlock($result) : $result;
-        }
-
         foreach ($this->storage as $key => $value) {
             $result .= $this->put($key, $value, false);
         }
