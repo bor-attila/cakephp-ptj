@@ -224,17 +224,31 @@ class PhpToJavascriptHelper extends \Cake\View\Helper
      */
     public function get(bool $include_javascript_file = true, bool $with_tags = true): string
     {
-        if (empty($this->storage)) {
-            return '';
-        }
         $result = '';
+        
         if ($include_javascript_file) {
             $result = $this->getJsFileContent();
         }
+
+        if (empty($this->storage)) {
+            return $with_tags ? $this->Html->scriptBlock($result) : $result;
+        }
+
         foreach ($this->storage as $key => $value) {
             $result .= $this->put($key, $value, false);
         }
 
         return $with_tags ? $this->Html->scriptBlock($result) : $result;
+    }
+
+    /**
+     * Echoes the current storage as a javascript block
+     *
+     * @param bool $include_javascript_file Includes the plugin's javascript file. Default: true
+     * @return void
+     */
+    public function scriptBlock(bool $include_javascript_file = true): void
+    {
+        echo $this->get($include_javascript_file, true);
     }
 }
