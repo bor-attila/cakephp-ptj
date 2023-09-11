@@ -18,17 +18,17 @@ class PhpToJavascriptHelper extends \Cake\View\Helper
     /**
      * @var array Stores the set variables which will be passed to Js
      */
-    private $storage = [];
+    private array $storage = [];
 
     /**
      * @var string[]
      */
-    public $helpers = ['Html'];
+    public array $helpers = ['Html'];
 
     /**
      * @var array
      */
-    protected $_defaultConfig = [
+    protected array $_defaultConfig = [
         'function' => 'p',
         'storage' => '__phptojavascript',
         'encode' => [

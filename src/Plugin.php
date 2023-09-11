@@ -13,5 +13,5 @@ class Plugin extends BasePlugin
     /**
      * @var bool
      */
-    protected $middlewareEnabled = false;
+    protected bool $middlewareEnabled = false;
 }
